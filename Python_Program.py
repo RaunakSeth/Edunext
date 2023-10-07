@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import shutil
 import subprocess
+import sys
 import os
 import openpyxl
 from docx import Document
@@ -39,6 +40,8 @@ def browse_files():
 def process_word_file(word_file_path):
     doc = Document(word_file_path)
     python_script = "edunextattempt3.py"  # Replace with the actual filename
+    command = [sys.executable, python_script, word_file_path]
+    subprocess.run(command)
     try:
         completed_process = subprocess.run(
             ["python", python_script],    # Command to run the script
@@ -65,6 +68,8 @@ def process_word_file(word_file_path):
 def process_excel_file(excel_file_path):
     wb = openpyxl.load_workbook(excel_file_path)
     python_script = "Excel work.py"  # Replace with the actual filename
+    command = [sys.executable, python_script, excel_file_path]
+    subprocess.run(command)
     try:
         completed_process = subprocess.run(
             ["python", python_script],    # Command to run the script

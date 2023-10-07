@@ -1,9 +1,11 @@
 import json
 import docx
+import sys
 from openpyxl import load_workbook
 
 # Replace 'your_file.xlsx' with the path to your Excel file.
-workbook = load_workbook("lists.xlsx")
+data_received = sys.argv[1]
+workbook = load_workbook(data_received)
 sheet = workbook.active
 
 data = {}
